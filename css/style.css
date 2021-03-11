@@ -177,6 +177,10 @@ body {
   padding-bottom: 10px;
 }
 
+.home__title span {
+  color: #50e3c2;
+}
+
 .home__search {
   width: 100%;
   display: -webkit-box;
@@ -199,7 +203,27 @@ body {
   font-size: 16px;
   text-align: center;
   line-height: 25px;
-  padding: 0 0 4rem;
+  margin: 3rem 0;
+}
+
+.trending {
+  padding: 75px 0;
+  color: #572ee5;
+  height: 640px;
+  background-color: #f3f5f8;
+  text-align: center;
+}
+
+.trending__title {
+  font-size: 25px;
+  margin: 4rem 0 0.5rem;
+}
+
+.trending__subtitle {
+  color: #000000;
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 18px;
+  line-height: 21px;
 }
 
 .fa fa-search {
@@ -244,10 +268,6 @@ h2 {
   right: 17px;
   top: 17px;
   cursor: pointer;
-}
-
-.main__title span {
-  color: #50e3c2;
 }
 
 /* favoritos */
@@ -328,35 +348,6 @@ h2 {
   font-size: 18px;
   text-align: center;
   line-height: 25px;
-}
-
-.title__trending {
-  font-size: 18px;
-  line-height: 25px;
-  margin: 4rem 0 0.5rem;
-}
-
-.title__gifos {
-  font-family: "Montserrat", sans-serif;
-  font-size: 25px;
-  line-height: 30px;
-}
-
-.title__gifos__black {
-  color: #000000;
-  font-family: "Roboto-Regular", sans-serif;
-  font-size: 18px;
-  line-height: 21px;
-}
-
-/* Seccion trending gifos */
-.trending {
-  color: #572ee5;
-  width: 100%;
-  height: 640px;
-  background-color: #f3f5f8;
-  text-align: center;
-  padding: 3rem;
 }
 
 .footer {
