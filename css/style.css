@@ -1,10 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+*:focus {
+  outline: thin dotted;
 }
 
 html {
@@ -14,6 +20,7 @@ html {
 body {
   border-bottom: 5px solid #572ee5;
   border-top: 5px solid #572ee5;
+  font-family: "Montserrat", sans-serif;
 }
 
 .container {
@@ -24,6 +31,43 @@ body {
 
 .hide {
   display: none;
+}
+
+.divider {
+  width: 338px;
+  height: 1px;
+  background-color: #d9e0e8;
+  margin: 0 auto;
+}
+
+.title {
+  color: #572ee5;
+  font-size: 35px;
+  line-height: 50px;
+}
+
+.btn__more {
+  color: #572ee5;
+  font-size: 13px;
+  text-align: center;
+  border: 1px solid #572ee5;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  margin: 6rem auto;
+}
+
+.btn__more:hover {
+  color: #f3f5f8;
+  background-color: #572ee5;
 }
 
 .header {
@@ -58,20 +102,15 @@ body {
   }
 }
 
-.header .hamburger:focus {
-  outline: none;
-}
-
 .header .menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 10px;
-  font-family: "Montserrat", sans-serif;
   font-size: 13px;
   letter-spacing: 0;
   justify-self: flex-end;
-  font-weight: bold;
+  font-weight: 800;
   color: #572ee5;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -165,16 +204,13 @@ body {
 }
 
 .home {
-  font-family: "Montserrat", sans-serif;
   color: #572ee5;
   padding: 75px 0;
 }
 
 .home__title {
-  font-size: 35px;
   text-align: center;
-  line-height: 50px;
-  padding-bottom: 10px;
+  padding-bottom: 2rem;
 }
 
 .home__title span {
@@ -197,6 +233,41 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: 1rem;
+}
+
+.home__search__image {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 24.94rem;
+  max-width: 95%;
+}
+
+.home__search__bar {
+  max-width: 95%;
+  width: 551px;
+  height: 50px;
+  position: relative;
+}
+
+.home__search__bar input {
+  background: #ffffff;
+  border: 1px solid #572ee5;
+  border-radius: 27px;
+  padding: 15px 54px;
+  outline: none;
+  width: 100%;
+}
+
+.home__search__bar button {
+  position: absolute;
+  background: transparent;
+  border: none;
+  color: #572ee5;
+  right: 17px;
+  top: 17px;
+  cursor: pointer;
 }
 
 .home__trending {
@@ -226,51 +297,28 @@ body {
   line-height: 21px;
 }
 
-.fa fa-search {
-  color: #572ee5;
-}
-
-h2 {
-  font-family: "Montserrat", sans-serif;
-}
-
-.img__persons {
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 24.94rem;
-  max-width: 100%;
-}
-
-/* Barra de navegacion */
 .search {
-  max-width: 100%;
-  width: 551px;
-  height: 50px;
-  position: relative;
+  text-align: center;
 }
 
-.search__input {
-  background: #ffffff;
-  border: 1px solid #572ee5;
-  border-radius: 27px;
-  padding: 15px 54px;
-  outline: none;
-  width: 100%;
+.search__title {
+  margin: 2rem 0;
 }
 
-.search__input__button {
-  position: absolute;
-  background: transparent;
-  border: none;
-  color: #572ee5;
-  right: 17px;
-  top: 17px;
-  cursor: pointer;
+.search__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (200px)[3];
+      grid-template-rows: repeat(3, 200px);
+  gap: 29px;
 }
 
-/* favoritos */
+.search__grid__result {
+  background-color: #572ee5;
+}
+
 .main__fav__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -303,51 +351,9 @@ h2 {
 
 .main__fav__text p .saveGifo {
   color: #50e3c2;
-  font-family: Montserrat-Bold;
   font-size: 22px;
   text-align: center;
   line-height: 33px;
-}
-
-.btn__ver__mas {
-  font-size: 13px;
-  letter-spacing: 0;
-  text-align: center;
-  border: 1px solid #572ee5;
-  border-radius: 25px;
-  border-radius: 25px;
-  cursor: pointer;
-  background-color: transparent;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.btn__ver__mas:hover {
-  background-color: #572ee5;
-}
-
-.btn__ver__mas__text {
-  font-family: "Montserrat", sans-serif;
-  font-size: 13px;
-  font-weight: bold;
-  color: #572ee5;
-  text-align: center;
-  padding: 1rem 2rem;
-}
-
-.btn__ver__mas__text:hover {
-  color: #f3f5f8;
-}
-
-.main__trending {
-  font-family: "Montserrat", sans-serif;
-  font-size: 18px;
-  text-align: center;
-  line-height: 25px;
 }
 
 .footer {
@@ -360,7 +366,7 @@ h2 {
       -ms-flex-align: center;
           align-items: center;
   height: 8rem;
-  font-family: "Roboto-Regular", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 13px;
   line-height: 15px;
   gap: 1rem;

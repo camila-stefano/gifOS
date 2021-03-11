@@ -1,11 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 // Variables
-$principal-bg-color: #572ee5;
-$secondary-bg-color: #50e3c2;
-$third-bg-color: #f3f5f8;
+$color-primary: #572ee5;
+$color-secondary: #50e3c2;
+$color-light: #f3f5f8;
+$color-gray: #d9e0e8;
+
 $section-separation: 75px 0;
+
+$font-primary: "Montserrat", sans-serif;
+$font-secondary: "Roboto-Regular", sans-serif;
 
 // Responsive
 @mixin mobile {
@@ -19,6 +24,11 @@ $section-separation: 75px 0;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.2s linear;
+
+  &:focus {
+    outline: thin dotted;
+  }
 }
 
 html {
@@ -26,8 +36,9 @@ html {
 }
 
 body {
-  border-bottom: 5px solid $principal-bg-color;
-  border-top: 5px solid $principal-bg-color;
+  border-bottom: 5px solid $color-primary;
+  border-top: 5px solid $color-primary;
+  font-family: $font-primary;
 }
 
 // Clases genericas
@@ -39,6 +50,39 @@ body {
 
 .hide {
   display: none;
+}
+
+.divider {
+  width: 338px;
+  height: 1px;
+  background-color: $color-gray;
+  margin: 0 auto;
+}
+
+.title {
+  color: $color-primary;
+  font-size: 35px;
+  line-height: 50px;
+}
+
+.btn__more {
+  color: $color-primary;
+  font-size: 13px;
+  text-align: center;
+  border: 1px solid $color-primary;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  margin: 6rem auto;
+
+  &:hover {
+    color: $color-light;
+    background-color: $color-primary;
+  }
 }
 
 // Bloques
@@ -57,27 +101,23 @@ body {
     background-color: transparent;
     border: 0;
     display: none;
-    color: $principal-bg-color;
+    color: $color-primary;
     cursor: pointer;
     font-size: 1rem;
 
     @include mobile {
       display: block;
     }
-    &:focus {
-      outline: none;
-    }
   }
 
   .menu {
     display: flex;
     gap: 10px;
-    font-family: "Montserrat", sans-serif;
     font-size: 13px;
     letter-spacing: 0;
     justify-self: flex-end;
-    font-weight: bold;
-    color: $principal-bg-color;
+    font-weight: 800;
+    color: $color-primary;
     align-items: center;
     text-transform: uppercase;
     transition: height 0.5s linear;
@@ -110,14 +150,14 @@ body {
 
     a {
       text-decoration: none;
-      color: $principal-bg-color;
+      color: $color-primary;
       cursor: pointer;
 
       @include mobile {
         color: white;
       }
       &:hover {
-        border-bottom: 2px solid $secondary-bg-color;
+        border-bottom: 2px solid $color-secondary;
       }
 
       &:active {
@@ -150,18 +190,15 @@ body {
 }
 
 .home {
-  font-family: "Montserrat", sans-serif;
-  color: $principal-bg-color;
+  color: $color-primary;
   padding: $section-separation;
 
   &__title {
-    font-size: 35px;
     text-align: center;
-    line-height: 50px;
-    padding-bottom: 10px;
+    padding-bottom: 2rem;
 
     & span {
-      color: $secondary-bg-color;
+      color: $color-secondary;
     }
   }
 
@@ -172,6 +209,39 @@ body {
     align-items: center;
     flex-direction: column;
     font-size: 1rem;
+
+    &__image {
+      margin: 0 auto;
+      display: flex;
+      width: 24.94rem;
+      max-width: 95%;
+    }
+
+    &__bar {
+      max-width: 95%;
+      width: 551px;
+      height: 50px;
+      position: relative;
+
+      & input {
+        background: #ffffff;
+        border: 1px solid #572ee5;
+        border-radius: 27px;
+        padding: 15px 54px;
+        outline: none;
+        width: 100%;
+      }
+
+      & button {
+        position: absolute;
+        background: transparent;
+        border: none;
+        color: $color-primary;
+        right: 17px;
+        top: 17px;
+        cursor: pointer;
+      }
+    }
   }
 
   &__trending {
@@ -184,7 +254,7 @@ body {
 
 .trending {
   padding: $section-separation;
-  color: $principal-bg-color;
+  color: $color-primary;
   height: 640px;
   background-color: #f3f5f8;
   text-align: center;
@@ -196,55 +266,30 @@ body {
 
   &__subtitle {
     color: #000000;
-    font-family: "Roboto-Regular", sans-serif;
+    font-family: $font-secondary;
     font-size: 18px;
     line-height: 21px;
   }
 }
 
-.fa fa-search {
-  color: $principal-bg-color;
-}
-
-h2 {
-  font-family: "Montserrat", sans-serif;
-}
-
-.img__persons {
-  margin: 0 auto;
-  display: flex;
-  width: 24.94rem;
-  max-width: 100%;
-}
-
-/* Barra de navegacion */
 .search {
-  max-width: 100%;
-  width: 551px;
-  height: 50px;
-  position: relative;
+  text-align: center;
 
-  &__input {
-    background: #ffffff;
-    border: 1px solid #572ee5;
-    border-radius: 27px;
-    padding: 15px 54px;
-    outline: none;
-    width: 100%;
+  &__title {
+    margin: 2rem 0;
+  }
 
-    &__button {
-      position: absolute;
-      background: transparent;
-      border: none;
-      color: $principal-bg-color;
-      right: 17px;
-      top: 17px;
-      cursor: pointer;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    gap: 29px;
+
+    &__result {
+      background-color: #572ee5;
     }
   }
 }
-
-/* favoritos */
 
 .main__fav__container {
   display: flex;
@@ -262,49 +307,11 @@ h2 {
     line-height: 30px;
   }
   & p .saveGifo {
-    color: $secondary-bg-color;
-    font-family: Montserrat-Bold;
+    color: $color-secondary;
     font-size: 22px;
     text-align: center;
     line-height: 33px;
   }
-}
-
-.btn__ver__mas {
-  font-size: 13px;
-  letter-spacing: 0;
-  text-align: center;
-  border: 1px solid $principal-bg-color;
-  border-radius: 25px;
-  border-radius: 25px;
-  cursor: pointer;
-  background-color: transparent;
-  display: flex;
-  align-items: center;
-
-  &:hover {
-    background-color: $principal-bg-color;
-  }
-
-  &__text {
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    color: $principal-bg-color;
-    text-align: center;
-    padding: 1rem 2rem;
-
-    &:hover {
-      color: $third-bg-color;
-    }
-  }
-}
-
-.main__trending {
-  font-family: "Montserrat", sans-serif;
-  font-size: 18px;
-  text-align: center;
-  line-height: 25px;
 }
 
 .footer {
@@ -314,7 +321,7 @@ h2 {
   color: #000000;
   align-items: center;
   height: 8rem;
-  font-family: "Roboto-Regular", sans-serif;
+  font-family: $font-primary;
   font-size: 13px;
   line-height: 15px;
   gap: 1rem;
@@ -336,7 +343,7 @@ h2 {
     font-size: 1rem;
 
     &:hover {
-      color: $principal-bg-color;
+      color: $color-primary;
       transform: scale(1.1);
     }
   }
