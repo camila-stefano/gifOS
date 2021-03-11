@@ -297,6 +297,21 @@ body {
   line-height: 21px;
 }
 
+.trending__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: 275px;
+      grid-template-rows: 275px;
+  margin: 4rem 0;
+  gap: 2rem;
+}
+
+.trending__grid__result {
+  background-color: #572ee5;
+}
+
 .search {
   text-align: center;
 }

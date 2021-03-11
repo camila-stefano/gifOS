@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="./css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
 </head>
 
 <body class="darkMode">
@@ -23,26 +22,36 @@
         <img id="menu_icon" src="/images/burger.svg" alt="burger">
       </button>
       <ul class="menu" id="menu">
-        <li><a class="darkMode" id="switch">MODO NOCTURNO</a></li>
-        <li><a href="favoritos.html">FAVORITOS</a></li>
-        <li><a href="misgifos.html">MIS GIFOS </a></li>
-        <li class="create__gif"><img src="./images/button-crear-gifo.svg" alt="Crear gifo">
+        <li>
+          <a class="darkMode" id="switch">MODO NOCTURNO</a>
+        </li>
+        <li>
+          <a href="favoritos.html">FAVORITOS</a>
+        </li>
+        <li>
+          <a href="misgifos.html">MIS GIFOS </a>
+        </li>
+        <li class="create__gif">
+          <img src="./images/button-crear-gifo.svg" alt="Crear gifo">
         </li>
       </ul>
     </nav>
-
   </header>
 
   <main>
 
     <section class="home container">
-      <h1 class="home__title title"> Inspírate, busca, guarda, y crea <br>los mejores <span>GIFOS</span></h1>
-
+      <h1 class="home__title title"> Inspírate, busca, guarda, y crea
+        <br>los mejores
+        <span>GIFOS</span>
+      </h1>
       <div class="home__search">
         <img class="home__search__image" src="images/ilustra_header.svg" alt="Caricatura de personas saludando">
         <div class="home__search__bar">
           <input type="text" placeholder="Busca GIFOS y más" />
-          <button><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+          <button>
+            <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
       <div class="home__trending">
@@ -51,7 +60,7 @@
       </div>
     </section>
 
-    <section class="search container">
+    <section class="hide search container">
       <div class="divider"></div>
       <h2 class="search__title title">Mascotas</h2>
       <div class="search__grid">
@@ -68,7 +77,6 @@
         <div class="search__grid__result"></div>
         <div class="search__grid__result"></div>
       </div>
-
       <button class="btn__more">VER MÁS</button>
     </section>
 
@@ -76,12 +84,15 @@
       <div class="container">
         <h2 class="trending__title">Trending GIFOS</h2>
         <h4 class="trending__subtitle">Mira los últimos GIFOS de nuestra comunidad.</h4>
-
+        <div class="trending__grid">
+          <div class="trending__grid__result"></div>
+          <div class="trending__grid__result"></div>
+          <div class="trending__grid__result"></div>
+        </div>
       </div>
     </section>
 
     <section class="main__fav container hide">
-
       <div class="main__fav__text">
         <img src="./images/icon-favoritos.svg" alt="Icono de corazon color turquesa">
         <h2>Favoritos</h2>
@@ -91,7 +102,6 @@
         <p class="saveGifo">"¡Guarda tu primer GIFO en Favoritos
           para que se muestre aquí!"</p>
       </div>
-
       <div class="main__fav__button">
         <button class="btn__more">
           <p class="btn__more__text">VER MÁS</p>
@@ -111,9 +121,6 @@
       </div>
     </section>
 
-
-
-
   </main>
 
   <footer class="footer container">
@@ -121,16 +128,17 @@
     <div class="social__network">
       <a href="https://facebook.com" target="_blank">
         <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
-
       </a>
-      <a href="https://twitter.com" target="_blank"> <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+      <a href="https://twitter.com" target="_blank">
+        <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
       </a>
-      <a href="https://instagram.com" target="_blank"> <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+      <a href="https://instagram.com" target="_blank">
+        <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
       </a>
     </div>
     <p class="reserved">© GIFOS 2021 All Rights Reserved.</p>
-
   </footer>
+
   <script src="./js/menu.js"></script>
   <script src="./js/dark.js"></script>
 </body>

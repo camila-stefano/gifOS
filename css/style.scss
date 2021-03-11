@@ -270,6 +270,18 @@ body {
     font-size: 18px;
     line-height: 21px;
   }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 275px;
+    margin: 4rem 0;
+    gap: 2rem;
+
+    &__result {
+      background-color: $color-primary;
+    }
+  }
 }
 
 .search {
