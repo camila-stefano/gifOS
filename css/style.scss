@@ -1,10 +1,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+@media (prefers-color-scheme: light) {
+  :root {
+    --lighter-to-darker: #ffffff;
+    --light-to-dark: #f3f5f8;
+    --dark-to-light: #222326;
+    --primary-to-light: #572ee5;
+    --primary-to-dark: #572ee5;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --lighter-to-darker: #37383c;
+    --light-to-dark: #222326;
+    --primary-to-light: #f3f5f8;
+    --dark-to-light: #f3f5f8;
+    --primary-to-dark: #222326;
+  }
+}
 // Variables
-$color-primary: #572ee5;
+
+$lighter-to-darker: var(--lighter-to-darker);
+$light-to-dark: var(--light-to-dark);
+$primary-to-light: var(--primary-to-light);
+$dark-to-light: var(--dark-to-light);
+$primary-to-dark: var(--primary-to-dark);
+
 $color-secondary: #50e3c2;
-$color-light: #f3f5f8;
 $color-gray: #d9e0e8;
 
 $section-separation: 75px 0;
@@ -36,8 +60,9 @@ html {
 }
 
 body {
-  border-bottom: 5px solid $color-primary;
-  border-top: 5px solid $color-primary;
+  background: $lighter-to-darker;
+  border-bottom: 5px solid $primary-to-dark;
+  border-top: 5px solid $primary-to-dark;
   font-family: $font-primary;
 }
 
@@ -60,16 +85,16 @@ body {
 }
 
 .title {
-  color: $color-primary;
+  color: $primary-to-light;
   font-size: 35px;
   line-height: 50px;
 }
 
 .btn__more {
-  color: $color-primary;
+  color: $primary-to-light;
   font-size: 13px;
   text-align: center;
-  border: 1px solid $color-primary;
+  border: 1px solid $primary-to-light;
   border-radius: 25px;
   cursor: pointer;
   background-color: transparent;
@@ -80,8 +105,8 @@ body {
   margin: 6rem auto;
 
   &:hover {
-    color: $color-light;
-    background-color: $color-primary;
+    color: $light-to-dark;
+    background-color: $primary-to-light;
   }
 }
 
@@ -101,7 +126,7 @@ body {
     background-color: transparent;
     border: 0;
     display: none;
-    color: $color-primary;
+    color: $primary-to-light;
     cursor: pointer;
     font-size: 1rem;
 
@@ -117,7 +142,7 @@ body {
     letter-spacing: 0;
     justify-self: flex-end;
     font-weight: 800;
-    color: $color-primary;
+    color: $primary-to-light;
     align-items: center;
     text-transform: uppercase;
     transition: height 0.5s linear;
@@ -150,7 +175,7 @@ body {
 
     a {
       text-decoration: none;
-      color: $color-primary;
+      color: $primary-to-light;
       cursor: pointer;
 
       @include mobile {
@@ -190,7 +215,7 @@ body {
 }
 
 .home {
-  color: $color-primary;
+  color: $primary-to-light;
   padding: $section-separation;
 
   &__title {
@@ -224,19 +249,20 @@ body {
       position: relative;
 
       & input {
-        background: #ffffff;
-        border: 1px solid #572ee5;
+        border: 1px solid $primary-to-light;
         border-radius: 27px;
         padding: 15px 54px;
         outline: none;
         width: 100%;
+        background: transparent;
+        color: $dark-to-light;
       }
 
       & button {
         position: absolute;
         background: transparent;
         border: none;
-        color: $color-primary;
+        color: $primary-to-light;
         right: 17px;
         top: 17px;
         cursor: pointer;
@@ -254,9 +280,9 @@ body {
 
 .trending {
   padding: $section-separation;
-  color: $color-primary;
+  color: $primary-to-light;
   height: 640px;
-  background-color: #f3f5f8;
+  background-color: $light-to-dark;
   text-align: center;
 
   &__title {
@@ -265,7 +291,7 @@ body {
   }
 
   &__subtitle {
-    color: #000000;
+    color: $dark-to-light;
     font-family: $font-secondary;
     font-size: 18px;
     line-height: 21px;
@@ -279,7 +305,7 @@ body {
     gap: 2rem;
 
     &__result {
-      background-color: $color-primary;
+      background-color: $primary-to-light;
     }
   }
 }
@@ -330,7 +356,7 @@ body {
   padding: 2rem;
   display: flex;
   //justify-content: space-between;
-  color: #000000;
+  color: $dark-to-light;
   align-items: center;
   height: 8rem;
   font-family: $font-primary;
@@ -355,7 +381,7 @@ body {
     font-size: 1rem;
 
     &:hover {
-      color: $color-primary;
+      color: $primary-to-light;
       transform: scale(1.1);
     }
   }
