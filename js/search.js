@@ -1,25 +1,29 @@
-//Varibales
+/*Varibales*/
 const inputSearch = document.getElementById("inputSearch");
-const btnSearch = document.getElementById("search_btn");
+const btnSearch = document.getElementById("btnSearch");
 const right_btn = document.getElementById("right_btn");
 const right_icon = document.getElementById("right_icon");
 const results_title = document.getElementById("results_title");
-const api_key = "KefMt9MyQV9jHwaFI9pAP7ZNncEbv5bJ";
 const url_search = "https://api.giphy.com/v1/gifs/search?api_key=" + api_key;
 const url_suggestions = "https://api.giphy.com/v1/tags/related/";
 let autoComp = document.getElementById("autocomplete_content");
 let offset = 0;
 let value = "";
 
+// Eventlisteners
+
+//Buscar gifos con click event
+btnSearch.addEventListener("click", searchGifos);
+
 //Obtener datos de la API de giphy
 function searchGifos() {
-  results_grid.innerHTML = "";
+  console.log("searchGifos");
   value = inputSearch.value.trim();
-  results.classList.remove("hide");
-  results_title.textContent = value;
+  //results.classList.remove("hide");
+  //results_title.textContent = value;
 
-  const search = url_search + "&limit=12&q=" + value + "/";
-  getSectionsData(search, results_grid, fav_img, fav_add, fav);
+  //const search = url_search + "&limit=12&q=" + value + "/";
+  //getSectionsData(search, results_grid, fav_img, fav_add, fav);
   closeAutocompleteSection();
 }
 
@@ -71,7 +75,6 @@ function closeAutocompleteSection() {
   autoComp.style.display = "none";
   right_icon.classList.remove("fa-times");
   right_icon.classList.add("fa-search");
-  btnSearch.classList.add("hide");
 }
 
 //Buscar con sugerencias
@@ -80,21 +83,18 @@ autoComp.addEventListener("click", (li) => {
   searchGifos();
 });
 
-//Cancelar busqueda
-right_btn.addEventListener("click", (e) => {
-  inputSearch.value = "";
-  inputSearch.placeholder = "Busca GIFOS y más";
-  closeAutocompleteSection();
-});
-
-//Buscar gifos con click event
-btnSearch.addEventListener("click", searchGifos);
+// //Cancelar busqueda
+// right_btn.addEventListener("click", () => {
+//   inputSearch.value = "";
+//   inputSearch.placeholder = "Busca GIFOS y más";
+//   closeAutocompleteSection();
+// });
 
 //Ver mas resultados
-more_btn.addEventListener("click", (e) => {
-  e.preventDefault();
-  seeMoreResults();
-});
+// more_btn.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   seeMoreResults();
+// });
 
 //Renderizar 12 resultados mas
 function seeMoreResults() {
@@ -102,37 +102,4 @@ function seeMoreResults() {
   value = inputSearch.value.trim();
   let search_more = url_search + "&limit=12&q=" + value + "&offset=" + offset;
   getSectionsData(search_more, results_grid, fav_img, fav_add, fav);
-}
-
-//Tendring topics
-
-let trend_topics = document.getElementById("trend_topics");
-window.onload = trendingTopics();
-
-//Obtener datos de la api de giphy
-function trendingTopics() {
-  let url = `https://api.giphy.com/v1/trending/searches?api_key=${api_key}`;
-
-  return fetch(url)
-    .then((resp) => resp.json())
-    .then((gifoWords) => {
-      let topics = gifoWords.data;
-      trend_topics.innerHTML = `
-            <p class="trending__links">${topics[0]}</p>, 
-            <p class="trending__links">${topics[1]}</p>, 
-            <p class="trending__links">${topics[2]}</p>, 
-            <p class="trending__links">${topics[3]}</p>, 
-            <p class="trending__links">${topics[4]}</p>`;
-
-      let topic_btns = document.getElementsByClassName("trending__links");
-      for (let i = 0; i < topic_btns.length; i++) {
-        topic_btns[i].addEventListener("click", function (e) {
-          inputSearch.value = topics[i];
-          searchGifos();
-        });
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-    });
 }
