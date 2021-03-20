@@ -4,8 +4,6 @@ const btnSearch = document.getElementById("btnSearch");
 const right_btn = document.getElementById("right_btn");
 const right_icon = document.getElementById("right_icon");
 const results_title = document.getElementById("results_title");
-const url_search = "https://api.giphy.com/v1/gifs/search?api_key=" + api_key;
-const url_suggestions = "https://api.giphy.com/v1/tags/related/";
 let autoComp = document.getElementById("autocomplete_content");
 let offset = 0;
 let value = "";
