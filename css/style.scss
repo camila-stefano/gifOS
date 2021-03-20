@@ -92,12 +92,12 @@ body {
 
 .btn__more {
   color: $primary-to-light;
+  border: 1px solid $primary-to-light;
+  background-color: transparent;
   font-size: 13px;
   text-align: center;
-  border: 1px solid $primary-to-light;
   border-radius: 25px;
   cursor: pointer;
-  background-color: transparent;
   display: flex;
   align-items: center;
   font-weight: 700;
@@ -332,31 +332,75 @@ body {
 .trending {
   padding: $section-separation;
   color: $primary-to-light;
-  height: 640px;
   background-color: $light-to-dark;
   text-align: center;
 
   &__title {
     font-size: 25px;
-    margin: 4rem 0 0.5rem;
+    margin-bottom: 1rem;
   }
 
   &__subtitle {
     color: $dark-to-light;
     font-family: $font-secondary;
     font-size: 18px;
+    font-weight: 400;
     line-height: 21px;
   }
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 275px;
-    margin: 4rem 0;
-    gap: 2rem;
+  &__carousel {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    margin: 3rem auto;
 
-    &__result {
-      background-color: $primary-to-light;
+    &__content {
+      display: flex;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      gap: 1rem;
+    }
+
+    .slide {
+      height: 100%;
+      position: absolute;
+      z-index: 1;
+      transition: left 0.4s linear;
+
+      &__image {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .nav {
+      display: grid;
+      place-items: center;
+      position: absolute;
+      top: 50%;
+      margin-top: -10px;
+      width: 40px;
+      height: 40px;
+      color: $primary-to-light;
+      border: 1px solid $primary-to-light;
+      background-color: transparent;
+      z-index: 2;
+      cursor: pointer;
+      outline: none;
+
+      &:hover {
+        color: $light-to-dark;
+        background-color: $primary-to-light;
+      }
+    }
+
+    .nav-left {
+      left: -40px;
+    }
+
+    .nav-right {
+      right: -40px;
     }
   }
 }

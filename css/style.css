@@ -69,12 +69,12 @@ body {
 
 .btn__more {
   color: var(--primary-to-light);
+  border: 1px solid var(--primary-to-light);
+  background-color: transparent;
   font-size: 13px;
   text-align: center;
-  border: 1px solid var(--primary-to-light);
   border-radius: 25px;
   cursor: pointer;
-  background-color: transparent;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -367,36 +367,82 @@ body {
 .trending {
   padding: 75px 0;
   color: var(--primary-to-light);
-  height: 640px;
   background-color: var(--light-to-dark);
   text-align: center;
 }
 
 .trending__title {
   font-size: 25px;
-  margin: 4rem 0 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .trending__subtitle {
   color: var(--dark-to-light);
   font-family: "Roboto-Regular", sans-serif;
   font-size: 18px;
+  font-weight: 400;
   line-height: 21px;
 }
 
-.trending__grid {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  -ms-grid-rows: 275px;
-      grid-template-rows: 275px;
-  margin: 4rem 0;
-  gap: 2rem;
+.trending__carousel {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  margin: 3rem auto;
 }
 
-.trending__grid__result {
+.trending__carousel__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  gap: 1rem;
+}
+
+.trending__carousel .slide {
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  -webkit-transition: left 0.4s linear;
+  transition: left 0.4s linear;
+}
+
+.trending__carousel .slide__image {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.trending__carousel .nav {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  width: 40px;
+  height: 40px;
+  color: var(--primary-to-light);
+  border: 1px solid var(--primary-to-light);
+  background-color: transparent;
+  z-index: 2;
+  cursor: pointer;
+  outline: none;
+}
+
+.trending__carousel .nav:hover {
+  color: var(--light-to-dark);
   background-color: var(--primary-to-light);
+}
+
+.trending__carousel .nav-left {
+  left: -40px;
+}
+
+.trending__carousel .nav-right {
+  right: -40px;
 }
 
 .search {
