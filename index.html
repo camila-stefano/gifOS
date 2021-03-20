@@ -48,15 +48,39 @@
       <div class="home__search">
         <img class="home__search__image" src="images/ilustra_header.svg" alt="Caricatura de personas saludando">
         <div class="home__search__bar">
-          <input type="text" placeholder="Busca GIFOS y más" />
-          <button>
-            <i class="fa fa-search fa-lg" aria-hidden="true"></i>
-          </button>
+          <div class="search__elements">
+            <button type="submit" class="search__left hide" id="search_btn">
+              <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+            </button>
+            <input id="inputSearch" type="text" placeholder="Busca GIFOS y más" />
+            <button id="btnSearch" class="search__btn">
+              <i id="right_icon" class="fa fa-search fa-lg" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <ul class="autocomplete_content" id="autocomplete_content" style="display: none;">
+            <li class="suggested"> <i class="fa fa-search" aria-hidden="true"></i>
+              <p class="suggested__text"></p>
+            </li>
+            <li class="suggested"> <i class="fa fa-search" aria-hidden="true"></i>
+              <p class="suggested__text"></p>
+            </li>
+            <li class="suggested"> <i class="fa fa-search" aria-hidden="true"></i>
+              <p class="suggested__text"></p>
+            </li>
+          </ul>
         </div>
+
       </div>
       <div class="home__trending">
         <h2 class="title__trending">Trending:</h2>
-        <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
+        <div class="trending__topics" id="trend_topics">
+          <p class="trending__links"></p>,
+          <p class="trending__links"></p>,
+          <p class="trending__links"></p>,
+          <p class="trending__links"></p>,
+          <p class="trending__links"></p>
+        </div>
       </div>
     </section>
 
@@ -138,7 +162,7 @@
     </div>
     <p class="reserved">© GIFOS 2021 All Rights Reserved.</p>
   </footer>
-
+  <script src="./js/search.js"></script>
   <script src="./js/menu.js"></script>
   <script src="./js/dark.js"></script>
 </body>

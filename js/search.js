@@ -1,28 +1,138 @@
-// crear funcion para traer listado de gifos del endpoint search
+//Varibales
+const inputSearch = document.getElementById("inputSearch");
+const btnSearch = document.getElementById("search_btn");
+const right_btn = document.getElementById("right_btn");
+const right_icon = document.getElementById("right_icon");
+const results_title = document.getElementById("results_title");
+const api_key = "KefMt9MyQV9jHwaFI9pAP7ZNncEbv5bJ";
+const url_search = "https://api.giphy.com/v1/gifs/search?api_key=" + api_key;
+const url_suggestions = "https://api.giphy.com/v1/tags/related/";
+let autoComp = document.getElementById("autocomplete_content");
+let offset = 0;
+let value = "";
 
-/**
- * Usar promesa o funcion asincrona
- * 1) buscar url endpoint (https://api.giphy.com/v1/gifs/search)
- * 2) hacer fetch (necesito api_key) y parametro de busqueda
- *    2.1) guardar en una variable la respuesta del endpoint
- *    2.2) convertir los datos recibidos en objeto js
- * 3) retornar esos datos
- */
+//Obtener datos de la API de giphy
+function searchGifos() {
+  results_grid.innerHTML = "";
+  value = inputSearch.value.trim();
+  results.classList.remove("hide");
+  results_title.textContent = value;
 
-// Si es objeto {}
-// Si es array []
-// apiConfig.SEARCH_ENDPOINT o apiConfig [´´]
+  const search = url_search + "&limit=12&q=" + value + "/";
+  getSectionsData(search, results_grid, fav_img, fav_add, fav);
+  closeAutocompleteSection();
+}
 
-const apiConfig = {
-  SEARCH_ENDPOINT: "https://api.giphy.com/v1/gifs/search",
-  API_KEY: "KefMt9MyQV9jHwaFI9pAP7ZNncEbv5bJ",
-  LIMIT: 12,
-};
+//Autocompletar sugerencias y buscar gifos con enter event
 
-async function obtenerGifsPorTopico(topico) {
-  let url = `${apiConfig.SEARCH_ENDPOINT}?api_key=${apiConfig.API_KEY}&q=${topico}&limit=${apiConfig.LIMIT}`;
-  let resp = await fetch(url);
-  let listadoGifs = await resp.json();
+inputSearch.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    searchGifos();
+    console.log("buscando con enter");
+  }
 
-  return listadoGifs.data;
+  value = inputSearch.value;
+  if (value.length >= 1) {
+    showAutocompleteSection();
+    fetch(`${url_suggestions}${value}?api_key=${api_key}`)
+      .then((response) => response.json())
+      .then((data) => {
+        suggestedTerms(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  } else {
+    closeAutocompleteSection();
+  }
+});
+
+//Mostrar seccion de autocompletar
+function showAutocompleteSection() {
+  autoComp.style.display = "block";
+  right_icon.classList.remove("fa-search");
+  right_icon.classList.add("fa-times");
+  btnSearch.classList.remove("hide");
+}
+
+//Renderizar resultados
+function suggestedTerms(terms) {
+  let suggested = terms.data;
+  autoComp.innerHTML = `
+    <li class="suggested"> <i class="fa fa-search"></i> <p class="suggested__text">${suggested[0].name}</p></li>
+    <li class="suggested"> <i class="fa fa-search"></i> <p class="suggested__text">${suggested[1].name}</p></li>
+    <li class="suggested"> <i class="fa fa-search"></i> <p class="suggested__text">${suggested[2].name}</p></li>
+    `;
+}
+
+//Ocultar autocompletar
+function closeAutocompleteSection() {
+  autoComp.style.display = "none";
+  right_icon.classList.remove("fa-times");
+  right_icon.classList.add("fa-search");
+  btnSearch.classList.add("hide");
+}
+
+//Buscar con sugerencias
+autoComp.addEventListener("click", (li) => {
+  inputSearch.value = li.target.textContent;
+  searchGifos();
+});
+
+//Cancelar busqueda
+right_btn.addEventListener("click", (e) => {
+  inputSearch.value = "";
+  inputSearch.placeholder = "Busca GIFOS y más";
+  closeAutocompleteSection();
+});
+
+//Buscar gifos con click event
+btnSearch.addEventListener("click", searchGifos);
+
+//Ver mas resultados
+more_btn.addEventListener("click", (e) => {
+  e.preventDefault();
+  seeMoreResults();
+});
+
+//Renderizar 12 resultados mas
+function seeMoreResults() {
+  offset = offset + 12;
+  value = inputSearch.value.trim();
+  let search_more = url_search + "&limit=12&q=" + value + "&offset=" + offset;
+  getSectionsData(search_more, results_grid, fav_img, fav_add, fav);
+}
+
+//Tendring topics
+
+let trend_topics = document.getElementById("trend_topics");
+window.onload = trendingTopics();
+
+//Obtener datos de la api de giphy
+function trendingTopics() {
+  let url = `https://api.giphy.com/v1/trending/searches?api_key=${api_key}`;
+
+  return fetch(url)
+    .then((resp) => resp.json())
+    .then((gifoWords) => {
+      let topics = gifoWords.data;
+      trend_topics.innerHTML = `
+            <p class="trending__links">${topics[0]}</p>, 
+            <p class="trending__links">${topics[1]}</p>, 
+            <p class="trending__links">${topics[2]}</p>, 
+            <p class="trending__links">${topics[3]}</p>, 
+            <p class="trending__links">${topics[4]}</p>`;
+
+      let topic_btns = document.getElementsByClassName("trending__links");
+      for (let i = 0; i < topic_btns.length; i++) {
+        topic_btns[i].addEventListener("click", function (e) {
+          inputSearch.value = topics[i];
+          searchGifos();
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }

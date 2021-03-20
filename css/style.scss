@@ -243,22 +243,39 @@ body {
     }
 
     &__bar {
+      font-size: 1rem;
+
+      .search__left,
+      .search__btn {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: inherit;
+      }
+      .search__elements {
+        display: flex;
+        gap: 1rem;
+        color: #9cafc3;
+      }
+
       max-width: 95%;
       width: 551px;
-      height: 50px;
+
       position: relative;
+      border: 1px solid $primary-to-light;
+      border-radius: 27px;
+      padding: 1rem;
 
       & input {
-        border: 1px solid $primary-to-light;
-        border-radius: 27px;
-        padding: 15px 54px;
+        border: none;
         outline: none;
         width: 100%;
         background: transparent;
         color: $dark-to-light;
       }
 
-      & button {
+      & .search__btn {
         position: absolute;
         background: transparent;
         border: none;
@@ -266,6 +283,27 @@ body {
         right: 17px;
         top: 17px;
         cursor: pointer;
+      }
+
+      .autocomplete_content {
+        width: 100%;
+        padding: 0;
+        background-color: transparent;
+        color: #9cafc3;
+        list-style: none;
+        margin-top: 1rem;
+        border-top: 1px solid;
+
+        .suggested {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          width: 100%;
+          padding: 0;
+          padding-top: 1rem;
+          cursor: pointer;
+          gap: 1rem;
+        }
       }
     }
   }
