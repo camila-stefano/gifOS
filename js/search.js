@@ -83,13 +83,6 @@ autoComp.addEventListener("click", (li) => {
   searchGifos();
 });
 
-// //Cancelar busqueda
-// right_btn.addEventListener("click", () => {
-//   inputSearch.value = "";
-//   inputSearch.placeholder = "Busca GIFOS y más";
-//   closeAutocompleteSection();
-// });
-
 //Ver mas resultados
 // more_btn.addEventListener("click", (e) => {
 //   e.preventDefault();
