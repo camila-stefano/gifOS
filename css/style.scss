@@ -315,6 +315,129 @@ body {
     margin: 3rem 0;
   }
 }
+
+//create section
+
+.create__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  &__img {
+    display: flex;
+    height: 162px;
+    align-items: center;
+
+    &__camera {
+      height: 100%;
+    }
+
+    &__cameralight {
+      position: relative;
+      top: 2px;
+      height: 76%;
+    }
+  }
+
+  &__upload {
+    position: relative;
+    border: 1px solid $primary-to-dark;
+    width: 50%;
+    height: 50%;
+    padding: 8%;
+  }
+}
+.box1 {
+  position: absolute;
+  border-left: 1px solid #50e3c2;
+  border-top: 1px solid #50e3c2;
+  left: 0;
+  top: 0;
+  height: 25px;
+  width: 27px;
+  margin: 15px;
+}
+.box2 {
+  position: absolute;
+  border-right: 1px solid #50e3c2;
+  border-top: 1px solid #50e3c2;
+  right: 0;
+  top: 0;
+  height: 25px;
+  width: 27px;
+  margin: 15px;
+}
+.box3 {
+  position: absolute;
+  border-left: 1px solid #50e3c2;
+  border-bottom: 1px solid #50e3c2;
+  left: 0;
+  bottom: 0;
+  height: 25px;
+  width: 27px;
+  margin: 15px;
+}
+.box4 {
+  position: absolute;
+  border-right: 1px solid #50e3c2;
+  border-bottom: 1px solid #50e3c2;
+  right: 0;
+  bottom: 0;
+  height: 25px;
+  width: 27px;
+  margin: 15px;
+}
+.create__title {
+  color: $primary-to-dark;
+  font-size: 25px;
+  margin-bottom: 1rem;
+  text-align: center;
+
+  & span {
+    color: $color-secondary;
+  }
+}
+
+.create__subtitle {
+  color: $dark-to-light;
+  font-family: $font-secondary;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+}
+.create__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+
+  &__btn .each {
+    font-family: $font-secondary;
+    color: $primary-to-dark;
+    padding: 0.4rem 0.6rem;
+    font-size: 1.13rem;
+    line-height: 0.94rem;
+    border-radius: 50%;
+  }
+}
+
+.step {
+  background-color: transparent;
+  border: 1px solid #572ee5;
+  color: #572ee5;
+}
+
+.divider__create {
+  width: 100%;
+  height: 0.43rem;
+  background-color: #572ee5;
+  margin: 1.5rem auto;
+}
+
+//trending
 .trending__topics {
   display: flex;
   width: 25.13rem;

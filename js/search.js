@@ -35,6 +35,7 @@ inputSearch.addEventListener("keyup", (e) => {
   }
 
   value = inputSearch.value;
+
   if (value.length >= 1) {
     showAutocompleteSection();
     fetch(`${url_suggestions}${value}?api_key=${api_key}`)
